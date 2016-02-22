@@ -28,7 +28,7 @@
                 html = html.slice( 0, -1 )
             }
 
-            header.innerHTML = html + '<span class="howandwhy"> , а главное - <span class="howandwhy__term"><span class="howandwhy__baloon"></span>зачем?</span></span>';
+            header.innerHTML = html + '<span class="howandwhy"> , а главное - <span class="howandwhy__term"><span class="howandwhy__baloon"></span><span class="howandwhy__how">зачем?</span></span></span>';
             whyCounter++;
         }
     }
