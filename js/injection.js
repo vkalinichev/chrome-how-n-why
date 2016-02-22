@@ -1,27 +1,45 @@
 'use strict';
 
 (function () {
-    var headers = document.querySelectorAll( 'h1,h2,h3,h1 *,h2 *,h3 *' );
+    var whyCounter = 0,
+        style,
+        url;
 
-    for (var i=0; i<headers.length; i++) {
-        var header = headers[i],
-            testString = header.innerText,
-            isHow,
-            isAlreadyWhyed,
-            html;
+    function processHeader( selectors ) {
+        var headers = document.querySelectorAll( selectors );
 
-        if ( testString ) {
-            testString = testString.trim();
-            isHow = testString.match( /^как/i );
-            isAlreadyWhyed = testString.match( /зачем\?$/i );
+        for (var i=0; i<headers.length; i++) {
+            var header = headers[i],
+                html = header.innerHTML,
+                isHow,
+                isAlreadyWhyed;
 
-            if ( isHow && !isAlreadyWhyed) {
-                html = header.innerHTML;
-                if ( html && html.match( /(:|,|\.|!|\?|\\|\/)$/ ) ) {
-                    html = html.slice( 0, -1 )
-                }
-                header.innerHTML = html + ', а главное - <span style="color:#c04">зачем?</span>'
+            if ( !html ) continue;
+
+            html = html.trim();
+            isHow = html.match( /^как/i );
+
+            if ( !isHow ) continue;
+            isAlreadyWhyed = html.match( /зачем\?$/i );
+
+            if ( isAlreadyWhyed ) continue;
+
+            if ( html && html.match( /(:|,|\.|!|\?|\\|\/)$/ ) ) {
+                html = html.slice( 0, -1 )
             }
+
+            header.innerHTML = html + '<span class="howandwhy"> , а главное - <span class="howandwhy__term"><span class="howandwhy__baloon"></span>зачем?</span></span>';
+            whyCounter++;
         }
+    }
+
+    processHeader( 'h1 *,h2 *,h3 *' );
+    processHeader( 'h1,h2,h3' );
+
+    if ( whyCounter ) {
+        style = document.createElement( 'link' );
+        url = chrome.extension.getURL("css/howandwhy.css");
+        style.rel = url;
+        document.body.appendChild( style );
     }
 }());

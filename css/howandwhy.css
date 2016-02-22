@@ -1,0 +1,54 @@
+.howandwhy {
+
+}
+
+.howandwhy__term {
+    display: inline-block;
+    color:#c04;
+    position: relative;
+    animation: .5s tada 1s;
+}
+
+.howandwhy__baloon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 240px;
+    height: 160px;
+    z-index: 1;
+
+    background: transparent url( 'chrome-extension://__MSG_@@extension_id__/img/why.png' ) center / cover;
+
+    transform: scale(0) translate(-50%, -50%) ;
+    opacity: 0;
+
+    transform-origin: left top;
+    transition: .2s;
+}
+
+.howandwhy__term:hover .howandwhy__baloon {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%) ;
+}
+
+@keyframes tada {
+    0% {
+        transform: scale3d(1, 1, 1) rotate3d(0, 0, 0, 0deg);
+    }
+
+    10% {
+        transform: scale3d(.05, .05, .05) rotate3d(0, 0, 1, -3deg);
+    }
+
+    25%, 45%, 65%, 85% {
+        transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 3deg);
+    }
+
+    35%, 55%, 75% {
+        transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -3deg);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1) rotate3d(0, 0, 0, 0deg);
+    }
+}

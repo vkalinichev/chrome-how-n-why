@@ -5,6 +5,9 @@
             "js": [
                 "js/injection.js"
             ],
+            "css": [
+                "css/howandwhy.css"
+            ],
             "matches": [
                 "<all_urls>"
             ]
@@ -18,5 +21,8 @@
     "manifest_version": 2,
     "name": "How and Why?",
     "short_name": "why?",
-    "version": "0.3"
+    "version": "0.4",
+    "web_accessible_resources": [
+        "img/why.png"
+    ]
 }
