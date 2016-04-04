@@ -12,7 +12,7 @@ errorHandler = (error)->
     console.error error.message, error.stack
 
 
-gulp.task 'build', $.sequence 'clean', [ 'styles', 'scripts', 'copy:resources' ], 'zip'
+gulp.task 'build', $.sequence 'clean', [ 'styles', 'scripts', 'images', 'copy:resources' ], 'zip'
 
 
 gulp.task 'styles', ->
@@ -47,7 +47,7 @@ gulp.task 'copy:resources', ->
 
 gulp.task 'zip', ->
     date = new Date
-    gulp.src path.join config.dest, '**/*.{css,js,jpg,jpeg,png,gif}'
+    gulp.src path.join config.dest, '**/*.{json,css,js,jpg,jpeg,png,gif}'
         .pipe $.zip( "#{date.getFullYear()}-#{date.getMonth()}-#{date.getDate()}.zip" )
         .pipe gulp.dest config.zip
 
