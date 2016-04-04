@@ -1,4 +1,6 @@
 path = require 'path'
+webpackStream = require 'webpack-stream'
+webpack = webpackStream.webpack
 
 module.exports =
     context: path.join __dirname, "/src/scripts"
@@ -25,5 +27,9 @@ module.exports =
             ".jade"
             ".js"
         ]
+
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin()
+    ]
 
     devtool: 'source-map'
