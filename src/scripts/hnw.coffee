@@ -1,35 +1,19 @@
 whyCounter = 0
 
-dictionaries =
-    russian:
-        test: /^как /i
-        punctTest: /зачем\?$/i
-        replacement:
-            text: ', а главное ̶  '
-            accent: 'зачем?'
+dictionaries = require './modules/dictionaries'
 
-    english:
-        test: /^how /i
-        replacement:
-            text: ' and most importantly ̶  '
-            accent: 'why?'
 
 template = ( options )->
-    '<span class="howandwhy">
-         options.text
-        <span class="howandwhy__term">
-            <span class="howandwhy__baloon"></span>
-            <span class="howandwhy__why">
-                 options.accent
-            </span>
-        </span>
-    </span>'
+    "<span class='howandwhy'>#{options.text}<span class='howandwhy__term'>
+        <span class='howandwhy__baloon'></span>
+        <span class='howandwhy__why'>#{options.accent}</span>
+    </span></span>"
 
 
 processHeader = ( selectors, element = document)->
     headers = element.querySelectorAll selectors
 
-    for header of headers
+    for header in headers
         html = header.innerHTML
         isHow
         isAlreadyWhyed
@@ -54,8 +38,8 @@ processHeader = ( selectors, element = document)->
                     html = html.slice 0, -1
 
                 header.innerHTML = html + template
-                        text: dictionary.replacement.text
-                        accent: dictionary.replacement.accent
+                    text: dictionary.replacement.text
+                    accent: dictionary.replacement.accent
 
         whyCounter++
 
@@ -71,7 +55,7 @@ process();
 
 if whyCounter
     style = document.createElement 'link'
-    url = chrome.extension.getURL "css/howandwhy.css"
+    url = chrome.extension.getURL "css/hnw.css"
     style.rel = url;
     document.body.appendChild style
 

@@ -5,12 +5,14 @@ path = require 'path'
 $ = require('gulp-load-plugins')()
 config = require 'config'
 
-wp = require 'webpack-stream'
-wc = require './webpack.config'
+webpackStream = require 'webpack-stream'
+webpackConfig = require './webpack.config'
 
 errorHandler = (error)->
     console.error error.message, error.stack
 
+
+gulp.task 'default', ['build', 'watch']
 
 gulp.task 'build', $.sequence 'clean', [ 'styles', 'scripts', 'images', 'copy:resources' ], 'zip'
 
@@ -30,7 +32,7 @@ gulp.task 'clean', ->
 gulp.task 'scripts', ->
     gulp.src './src/scripts/hnw.coffee'
         .pipe $.plumber errorHandler
-        .pipe wp wc
+        .pipe webpackStream webpackConfig
         .pipe gulp.dest config.dest
 
 
@@ -53,7 +55,7 @@ gulp.task 'zip', ->
 
 
 gulp.task 'watch', ->
-    gulp.watch './src/scripts/**/*', 'scripts'
-    gulp.watch './src/styles/**.*',  'styles'
-    gulp.watch './src/images/**/*',  'images'
-    gulp.watch './src/*.json', 'copy:resources'
+    gulp.watch './src/scripts/**/*', ['scripts']
+    gulp.watch './src/styles/**/*',  ['styles']
+    gulp.watch './src/images/**/*',  ['images']
+    gulp.watch './src/*.json', ['copy:resources']
