@@ -8,7 +8,7 @@ module.exports =
             accent: 'зачем?'
 
     english1:
-        test: /^how to /i
+        test: /^how /i
         punctTest: /why\?$/i
         replacement:
             text: ', and most importantly — '
