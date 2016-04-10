@@ -4,19 +4,18 @@ module.exports =
         test: /^как /i
         punctTest: /зачем\?$/i
         replacement:
-            text: ', а главное — '
-            accent: 'зачем?'
+            texts: [
+                ', а главное — '
+                ', и '
+            ]
+            question: 'зачем?'
 
-    english1:
-        test: /^how /i
+    english:
+        test: /^how(-to)? /i
         punctTest: /why\?$/i
         replacement:
-            text: ', and most importantly — '
-            accent: 'why?'
-
-    english2:
-        test: /^how-to /i
-        punctTest: /why-do\?$/i
-        replacement:
-            text: ', and '
-            accent: 'why-do?'
+            texts: [
+                ', and most importantly — '
+                ', and '
+            ]
+            question: 'why?'

@@ -2,12 +2,20 @@
     position relative
 
     &__term
-        display inline-block
-        color hsl( 320, 75%, 48% )
+        display inline-flex
+        color hsl( 345, 75%, 48% )
         position relative
-        animation .5s tada 1s
+        animation .5s inPlaceTada 1s
         z-index 100
 
+    &__target:hover &__term
+        animation-duration .7s
+        animation-iteration-count infinite
+        text-decoration-color lime
+        -webkit-text-decoration-color lime
+
+    & &__term:hover
+        animation none
 
     &__baloon
         position absolute
@@ -24,7 +32,6 @@
 
         transform-origin left top
         transition .2s
-
 
     &__term:hover &__baloon
         opacity 1

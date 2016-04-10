@@ -1,6 +1,6 @@
 {
   "name": "how-n-why",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "description": "'How and why?' chrome extension",
   "dependencies": {
     "coffee": "^3.2.1",

@@ -4,9 +4,11 @@ dictionaries = require './modules/dictionaries'
 
 
 template = ( options )->
-    "<span class='howandwhy'>#{options.text}<span class='howandwhy__term'>
+    preamble = options.texts[ Math.floor Math.random()*options.texts.length ]
+
+    "<span class='howandwhy'>#{preamble}<span class='howandwhy__term'>
         <span class='howandwhy__baloon'></span>
-        <span class='howandwhy__why'>#{options.accent}</span>
+        <span class='howandwhy__why'>#{options.question}</span>
     </span></span>"
 
 
@@ -14,9 +16,11 @@ processHeader = ( selectors, element = document)->
     headers = element.querySelectorAll selectors
 
     for header in headers
+        isAlreadyWhyed = header.classList.contains "howandwhy__target"
+
+        if isAlreadyWhyed then continue
+
         html = header.innerHTML
-        isHow
-        isAlreadyWhyed
 
         if not html then continue
 
@@ -30,16 +34,14 @@ processHeader = ( selectors, element = document)->
             isHow = html.match dictionary.test
 
             if isHow
-                isAlreadyWhyed = html.match dictionary.punctTest
 
-                if isAlreadyWhyed then continue
-
-                if html && html.match /(:|,|\.|!|\?|\\|\/)$/
+                if html and html.match /(:|,|\.|!|\?|\\|\/)$/
                     html = html.slice 0, -1
 
+                header.classList.add "howandwhy__target"
                 header.innerHTML = html + template
-                    text: dictionary.replacement.text
-                    accent: dictionary.replacement.accent
+                    texts: dictionary.replacement.texts
+                    question: dictionary.replacement.question
 
         whyCounter++
 
