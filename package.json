@@ -1,6 +1,6 @@
 {
   "name": "how-n-why",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "'How and why?' chrome extension",
   "dependencies": {
     "coffee": "^3.2.1",
@@ -15,9 +15,11 @@
     "gulp-livereload": "^3.8.1",
     "gulp-load-plugins": "^1.2.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.0",
     "gulp-sequence": "^0.4.5",
     "gulp-stylus": "^2.3.1",
     "gulp-zip": "^3.2.0",
+    "postcss-importanter": "^0.1.0",
     "webpack-dev-server": "^1.14.1",
     "webpack-stream": "^3.1.0"
   },

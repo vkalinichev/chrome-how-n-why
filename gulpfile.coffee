@@ -8,6 +8,8 @@ config = require 'config'
 webpackStream = require 'webpack-stream'
 webpackConfig = require './webpack.config'
 
+postcssImportanter = require 'postcss-importanter'
+
 errorHandler = (error)->
     console.error error.message, error.stack
 
@@ -22,6 +24,7 @@ gulp.task 'styles', ->
         .pipe $.plumber errorHandler
         .pipe $.stylus
             compress: true
+        .pipe $.postcss [ postcssImportanter ]
         .pipe gulp.dest config.dest
 
 
