@@ -6,7 +6,7 @@ module.exports =
         replacement:
             texts: [
                 ', а главное — '
-                ', и '
+#                ', и '
             ]
             question: 'зачем?'
 
@@ -16,6 +16,6 @@ module.exports =
         replacement:
             texts: [
                 ', and most importantly — '
-                ', and '
+#                ', and '
             ]
             question: 'why?'
