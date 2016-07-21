@@ -1,3 +1,4 @@
+config = require "config"
 path = require 'path'
 webpackStream = require 'webpack-stream'
 webpack = webpackStream.webpack
@@ -30,6 +31,8 @@ module.exports =
 
     plugins: [
         new webpack.optimize.UglifyJsPlugin()
+        new webpack.DefinePlugin
+            __gaCode__: JSON.stringify config.googleAnalyticsCode
     ]
 
     devtool: 'source-map'

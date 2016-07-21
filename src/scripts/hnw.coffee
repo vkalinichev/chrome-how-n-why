@@ -1,6 +1,7 @@
 whyCounter = 0
 
 dictionaries = require './modules/dictionaries'
+ga = require './modules/ga'
 
 
 template = ( options )->
@@ -39,9 +40,13 @@ processHeader = ( selectors, element = document)->
                     html = html.slice 0, -1
 
                 header.classList.add "howandwhy__target"
-                header.innerHTML = html + template
+                html += template
                     texts: dictionary.replacement.texts
                     question: dictionary.replacement.question
+
+                ga.track html
+
+                header.innerHTML = html
 
         whyCounter++
 

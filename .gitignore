@@ -4,4 +4,6 @@
 .build
 .deploy
 
+config/local.*
+
 *.log
