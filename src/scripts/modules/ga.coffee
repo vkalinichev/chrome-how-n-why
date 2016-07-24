@@ -11,8 +11,6 @@ do ( win=window, doc=document )->
     sibling = doc.getElementsByTagName( "script" )[0]
     sibling.parentNode.insertBefore el, sibling
 
-    console.log win.ga.q
-
 
 ga = window.ga
 ga "create", __gaCode__, "auto"
