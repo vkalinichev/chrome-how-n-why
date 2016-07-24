@@ -13,6 +13,7 @@
       ]
     }
   ],
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "description": "How and Why?",
   "icons": {
     "128": "images/logo_128.png",
@@ -23,7 +24,7 @@
   "name": "How and Why?",
   "short_name": "why?",
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "version": "0.8.8",
+  "version": "1.0.0",
   "web_accessible_resources": [
     "images/why.png"
   ]

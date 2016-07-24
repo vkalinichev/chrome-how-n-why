@@ -1,7 +1,7 @@
 whyCounter = 0
 
-dictionaries = require './modules/dictionaries'
-ga = require './modules/ga'
+ga = require "./modules/ga"
+dictionaries = require "./modules/dictionaries"
 
 
 template = ( options )->
@@ -40,19 +40,20 @@ processHeader = ( selectors, element = document)->
                     html = html.slice 0, -1
 
                 header.classList.add "howandwhy__target"
+
+                ga.track "Main", "Text replacing", html
+
                 html += template
                     texts: dictionary.replacement.texts
                     question: dictionary.replacement.question
-
-                ga.track html
 
                 header.innerHTML = html
 
         whyCounter++
 
 process = ( element )->
-    processHeader 'h1 *,h2 *,h3 *', element
-    processHeader 'h1,h2,h3', element
+    processHeader "h1 *,h2 *,h3 *", element
+    processHeader "h1,h2,h3", element
 
 onDOMChanged = ( event )->
     if not event.target.nodeName.match /^#/
@@ -61,9 +62,9 @@ onDOMChanged = ( event )->
 process();
 
 if whyCounter
-    style = document.createElement 'link'
+    style = document.createElement "link"
     url = chrome.extension.getURL "css/hnw.css"
     style.rel = url;
     document.body.appendChild style
 
-document.documentElement.addEventListener 'DOMNodeInserted', onDOMChanged
+document.documentElement.addEventListener "DOMNodeInserted", onDOMChanged
