@@ -1,5 +1,6 @@
 {
   "author": "Vladimir Kalinichev",
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "content_scripts": [
     {
       "css": [
@@ -13,7 +14,7 @@
       ]
     }
   ],
-  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+  "default_locale": "ru",
   "description": "How and Why?",
   "icons": {
     "128": "images/logo_128.png",
@@ -22,7 +23,7 @@
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqIkbxX64/jS13AMyqJSm9aSk1NVzIQKoga3xsNEja9uzj8QPLbwpF2ovT0ChDCGhcl4dqnfp3tTbUrZal5V2FvZadl1BR6R14yYvAf93iRI5Gkz/LbHMH+dH70JT8uTEgB88zhI6MwX23MqvJ6zjqYgO7MDi8bDQQAezpVxmSk27eOX/SGvT4/4KkyvC72kVlwGDLt+bh4x5IWFVUF3Dp/0L5Ic2m310jkMjuf5L+NuK6t2kXwQFrfpeH7ddlUlu3b3ktUm91LiXS+j+UCRABUxej2mrS2j+NMlCL9e7M1kly6HV+KtladPuq2/+1WSDeO2pTkumu1ewg77LIO2a4wIDAQAB",
   "manifest_version": 2,
   "name": "How and Why?",
-  "short_name": "why?",
+  "short_name": "How and Why?",
   "update_url": "https://clients2.google.com/service/update2/crx",
   "version": "1.0.0",
   "web_accessible_resources": [
