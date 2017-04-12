@@ -1,8 +1,8 @@
 # chrome-how-n-why
 
-[![Version] [version-img]] [url]
-[![Downloads] [downloads-img]] [url]
-[![Rating] [rating-img]] [url]
+[![Version][version-img]][url]
+[![Downloads][downloads-img]][url]
+[![Rating][rating-img]][url]
 
 [version-img]: https://img.shields.io/chrome-web-store/v/mleceoobkglhjfmcghcchgnapdpofaae.svg
 [downloads-img]: https://img.shields.io/chrome-web-store/d/mleceoobkglhjfmcghcchgnapdpofaae.svg
