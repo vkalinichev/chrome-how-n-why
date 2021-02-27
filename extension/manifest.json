@@ -1,17 +1,10 @@
 {
   "author": "Vladimir Kalinichev",
-  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
-  "content_scripts": [
-    {
-      "css": [
-        "hnw.css"
-      ],
-      "js": [
-        "hnw.js"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "content_scripts": [{
+      "matches": ["<all_urls>"],
+      "css": ["hnw.css"],
+      "js": ["hnw.js"]
     }
   ],
   "default_locale": "ru",
